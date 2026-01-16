@@ -59,10 +59,5 @@
 	// Environment variables
 	"remoteEnv": {
 		"PYTHONUNBUFFERED": "1"
-	},
-	
-	// Ensure proper permissions for file operations
-	"mounts": [
-		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
-	]
+	}
 }

@@ -58,6 +58,13 @@ def convert_pdf_to_markdown(pdf_path: str, output_dir: str = "./output") -> Tupl
     output_filename = pdf_path.stem + ".md"
     output_path = output_dir / output_filename
     
+    # Handle filename conflicts by adding a number suffix
+    counter = 1
+    while output_path.exists():
+        output_filename = f"{pdf_path.stem}_{counter}.md"
+        output_path = output_dir / output_filename
+        counter += 1
+    
     # Write markdown content to file
     try:
         with open(output_path, "w", encoding="utf-8") as f:
