@@ -1,0 +1,10 @@
+{
+    "reportMissingImports": "warning",
+    "extraPaths": [],
+    "pythonVersion": "3.11",
+    "typeCheckingMode": "basic",
+    "ignore": [
+        "**/node_modules",
+        "**/__pycache__"
+    ]
+}

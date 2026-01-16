@@ -1,5 +1,12 @@
 # PDF conversion using Marker
-marker-pdf>=0.2.0
+# Pin to specific versions for compatibility
+marker-pdf>=0.2.0,<0.3
+surya-ocr>=0.4.0,<0.6
+transformers>=4.41.0,<4.42
+
+# PyTorch (CPU version - for GPU, install torch with CUDA separately)
+# Note: marker-pdf should pull this, but being explicit helps
+torch
 
 # Additional useful libraries for PDF processing
 # Uncomment if needed:

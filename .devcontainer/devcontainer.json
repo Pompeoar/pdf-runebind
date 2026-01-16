@@ -13,6 +13,15 @@
 	"workspaceFolder": "/workspace",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 	
+	// Additional mounts for PDF sources and model cache
+	"mounts": [
+		// Mount a folder for your PDFs - adjust path as needed
+		// "source=${localEnv:HOME}/PDFs,target=/pdfs,type=bind,consistency=cached",
+		
+		// Persist Hugging Face model cache to avoid re-downloading
+		"source=pdf-runebind-hf-cache,target=/home/vscode/.cache/huggingface,type=volume"
+	],
+	
 	// Configure VS Code settings
 	"customizations": {
 		"vscode": {
