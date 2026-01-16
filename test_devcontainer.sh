@@ -56,7 +56,8 @@ which python
 # Test 6: Check Marker installation
 echo ""
 echo "6. Marker installation:"
-if python -c "import marker; print('✓ Marker is installed'); print('  Version:', marker.__version__ if hasattr(marker, '__version__') else 'unknown')" 2>/dev/null; then
+marker_check_script="import marker; print('✓ Marker is installed'); print('  Version:', marker.__version__ if hasattr(marker, '__version__') else 'unknown')"
+if python -c "$marker_check_script" 2>/dev/null; then
     echo "✓ Marker module can be imported"
 else
     echo "✗ Marker module not found or import failed"

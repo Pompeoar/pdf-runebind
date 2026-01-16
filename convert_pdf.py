@@ -49,6 +49,8 @@ def convert_pdf_to_markdown(pdf_path: str, output_dir: str = "./output") -> Tupl
     models = load_all_models()
     
     print(f"Converting {pdf_path.name} to markdown...")
+    # Note: images and metadata are returned but not currently used
+    # They could be used in future enhancements for image extraction or metadata processing
     full_text, images, metadata = convert_single_pdf(
         str(pdf_path),
         models
