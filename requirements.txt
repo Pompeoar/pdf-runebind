@@ -1,0 +1,8 @@
+# PDF conversion using Marker
+marker-pdf>=0.2.0
+
+# Additional useful libraries for PDF processing
+# Uncomment if needed:
+# pypdf2
+# pdfplumber
+# pymupdf

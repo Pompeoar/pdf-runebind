@@ -1,0 +1,68 @@
+{
+	"name": "PDF Runebind - Python with Marker",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+	
+	// Configure container user
+	"remoteUser": "vscode",
+	"containerUser": "vscode",
+	
+	// Set workspace folder
+	"workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	
+	// Configure VS Code settings
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.provider": "black",
+				"python.formatting.blackPath": "/usr/local/bin/black",
+				"files.watcherExclude": {
+					"**/target/**": true
+				},
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.black-formatter"
+			]
+		}
+	},
+	
+	// Forward ports if needed
+	"forwardPorts": [],
+	
+	// Post create command to ensure permissions
+	"postCreateCommand": "sudo chown -R vscode:vscode /workspace",
+	
+	// Features to add
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true,
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000"
+		}
+	},
+	
+	// Environment variables
+	"remoteEnv": {
+		"PYTHONUNBUFFERED": "1"
+	},
+	
+	// Ensure proper permissions for file operations
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+	]
+}
